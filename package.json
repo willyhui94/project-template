@@ -1,0 +1,29 @@
+{
+  "name": "project-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run prod",
+    "build": "npm run clean && npm run compile",
+    "clean": "rimraf dist",
+    "compile": "babel ./src/app.js --out-dir dist",
+    "server": "node ./dist/app.js",
+    "dev": "cross-env NODE_ENV=development babel-node ./src/app.js",
+    "staging": "npm run build && cross-env NODE_ENV=staging npm run server",
+    "prod": "npm run build && cross-env NODE_ENV=production npm run server",
+    "watch:dev": "nodemon"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.6",
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0",
+    "rimraf": "^3.0.2"
+  }
+}
